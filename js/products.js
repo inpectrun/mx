@@ -60,7 +60,7 @@ const PRODUCTS = [
       Size: "Standard",
       Type: "Quick-action throttle",
     },
-    affiliateUrl: "https://vt.tiktok.com/ZS9Ay9RpjUJ3g-1E7Vs/",
+    affiliateUrl: "https://vt.tiktok.com/ZSqEe5D1N/",
   },
   {
     id: "handlebar",
