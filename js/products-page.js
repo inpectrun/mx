@@ -48,8 +48,7 @@
     return `
     <article class="product-card" data-id="${p.id}" tabindex="0" role="button" aria-label="View ${p.name} details">
       <div class="product-media">
-        <div class="badge-row">${badge}</div>
-        <span class="badge badge-affiliate">Affiliate</span>
+        <div class="badge-row">${badge}<span class="badge badge-affiliate">Affiliate</span></div>
         <img src="${p.image}" alt="${p.name}" loading="lazy" width="600" height="600">
       </div>
       <div class="product-body">
