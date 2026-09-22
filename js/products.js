@@ -7,7 +7,7 @@
  * PHP / Firebase / REST API endpoint that returns the same shape.
  *
  * >>> REPLACE_AFFILIATE_URL: swap every "affiliateUrl" below with your real
- *     Shopee affiliate link for that product.
+ *     TikTok Shop affiliate link for that product.
  * >>> REPLACE_IMAGE: swap "image" paths with real product photos once you
  *     have them (keep the same folder structure, e.g. images/products/...).
  */
@@ -61,7 +61,7 @@ const PRODUCTS = [
       Type: "Quick-action throttle",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-QUICK-THROTTLE",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-QUICK-THROTTLE",
   },
   {
     id: "handlebar",
@@ -96,7 +96,7 @@ const PRODUCTS = [
       Type: "Trail handlebar",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-HANDLEBAR",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-HANDLEBAR",
   },
   {
     id: "side-mirror",
@@ -125,7 +125,7 @@ const PRODUCTS = [
       Type: "Rectangular side mirror (pair)",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-SIDE-MIRROR",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-SIDE-MIRROR",
   },
   {
     id: "oring-chain",
@@ -160,7 +160,7 @@ const PRODUCTS = [
       Type: "O-ring drive chain",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-ORING-CHAIN",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-ORING-CHAIN",
   },
   {
     id: "led-headlight",
@@ -189,7 +189,7 @@ const PRODUCTS = [
       Type: "LED headlight bulb/housing",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-LED-HEADLIGHT",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-LED-HEADLIGHT",
   },
   {
     id: "grips",
@@ -223,7 +223,7 @@ const PRODUCTS = [
       Type: "Handlebar grips (pair)",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-GRIPS",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-GRIPS",
   },
   {
     id: "brake-pads",
@@ -252,7 +252,7 @@ const PRODUCTS = [
       Type: "Front/rear brake pad set",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-BRAKE-PADS",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-BRAKE-PADS",
   },
   {
     id: "foot-pegs",
@@ -281,7 +281,7 @@ const PRODUCTS = [
       Type: "Foot pegs (pair)",
     },
     // REPLACE_AFFILIATE_URL
-    affiliateUrl: "https://shopee.ph/YOUR-AFFILIATE-LINK-FOOT-PEGS",
+    affiliateUrl: "https://shop.tiktok.com/YOUR-AFFILIATE-LINK-FOOT-PEGS",
   },
 ];
 

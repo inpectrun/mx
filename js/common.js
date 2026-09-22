@@ -205,9 +205,9 @@
         <div class="product-rating"><span class="stars">${starString(p.rating)}</span> ${p.rating.toFixed(1)} (${p.reviewCount} reviews)</div>
         <p class="pm-desc">${p.description}</p>
         <div class="pm-buy-row">
-          <button class="btn btn-primary btn-block" data-buy="${p.id}">Buy on Shopee</button>
+          <button class="btn btn-primary btn-block" data-buy="${p.id}">Buy on TikTok</button>
         </div>
-        <p class="pm-disclosure-inline">This is an affiliate link — purchases are completed on Shopee. Inspect.mx may earn a commission at no extra cost to you.</p>
+        <p class="pm-disclosure-inline">This is an affiliate link — purchases are completed on TikTok Shop. Inspect.mx may earn a commission at no extra cost to you.</p>
       </div>
 
       <div class="pm-section">
@@ -286,14 +286,14 @@
   const INFO_CONTENT = {
     privacy: {
       title: "Privacy Policy",
-      body: `<p>Inspect.mx does not process payments or store payment information — all purchases are completed on the external marketplace (Shopee).</p>
+      body: `<p>Inspect.mx does not process payments or store payment information — all purchases are completed on the external marketplace (TikTok Shop).</p>
              <p>Any information submitted through the contact form (name, email, message) is used solely to respond to your inquiry and is not sold or shared with third parties.</p>
-             <p>This site may use standard analytics and affiliate tracking cookies/parameters (such as those used by Shopee's affiliate program) to attribute purchases made through Inspect.mx links.</p>`,
+             <p>This site may use standard analytics and affiliate tracking cookies/parameters (such as those used by TikTok Shop's affiliate program) to attribute purchases made through Inspect.mx links.</p>`,
     },
     terms: {
       title: "Terms & Conditions",
       body: `<p>Inspect.mx is an independent affiliate recommendation website. We do not manufacture, own, stock, or ship any products listed on this site.</p>
-             <p>All purchases are completed on the external marketplace (Shopee) through the affiliate links provided. Pricing, availability, and order fulfillment are controlled entirely by the external seller/marketplace, not Inspect.mx.</p>
+             <p>All purchases are completed on the external marketplace (TikTok Shop) through the affiliate links provided. Pricing, availability, and order fulfillment are controlled entirely by the external seller/marketplace, not Inspect.mx.</p>
              <p>Product opinions shared here reflect personal experience or independent research and are provided for informational purposes only.</p>`,
     },
     disclosure: {

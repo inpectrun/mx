@@ -58,7 +58,7 @@
         <div class="product-rating"><span class="stars">${starString(p.rating)}</span> ${p.rating.toFixed(1)} (${p.reviewCount})</div>
         <div class="product-price">${money(p.price)}</div>
       </div>
-      <button class="product-buy-btn" data-buy="${p.id}">Buy on Shopee</button>
+      <button class="product-buy-btn" data-buy="${p.id}">Buy on TikTok</button>
     </article>`;
   }
 
