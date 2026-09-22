@@ -1050,6 +1050,7 @@ body { padding-bottom: 0; }
 
 .pm-body { padding: 24px 24px 0; }
 .pm-badges { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.pm-badges .badge-affiliate { position: static; top: auto; right: auto; }
 .pm-title { font-size: 1.5rem; margin-bottom: 6px; }
 .pm-category { color: var(--text-faint); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 10px; }
 .pm-price { font-size: 1.6rem; font-weight: 700; font-family: var(--font-display); margin-bottom: 12px; }
