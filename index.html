@@ -13,6 +13,8 @@
 </head>
 <body data-page="home">
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- ======================= NAVBAR ======================= -->
 <header class="navbar" id="navbar">
   <div class="navbar-inner container">
@@ -73,8 +75,11 @@
 
 <!-- ======================= HERO ======================= -->
 <section class="hero" id="home">
-  <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
+  <div class="hero-bg-wrap" id="heroBgWrap">
+    <div class="hero-bg" style="background-image:url('images/hero-bg.jpg')"></div>
+  </div>
   <div class="hero-overlay"></div>
+  <div class="hero-light-sweep"></div>
   <div class="container hero-content">
     <p class="hero-eyebrow reveal">Motorcycle Parts I Recommend</p>
     <h1 class="hero-title reveal">INSPECT<span class="accent">.MX</span></h1>
@@ -97,17 +102,17 @@
     <h2 class="section-title">Creator-curated, not a generic affiliate list</h2>
     <p class="trust-text">I share motorcycle parts based on products I've personally used, tested, researched, or found worth checking out.</p>
     <div class="trust-grid">
-      <div class="trust-card">
+      <div class="trust-card reveal">
         <span class="trust-icon">🏍️</span>
         <h3>Personally Used</h3>
         <p>Parts running on my own bike, in real conditions.</p>
       </div>
-      <div class="trust-card">
+      <div class="trust-card reveal" style="animation-delay:0.1s">
         <span class="trust-icon">🔧</span>
         <h3>Motorcycle Focused</h3>
         <p>Everything here is picked for riders — not a generic catalog.</p>
       </div>
-      <div class="trust-card">
+      <div class="trust-card reveal" style="animation-delay:0.2s">
         <span class="trust-icon">🎥</span>
         <h3>Real Content &amp; Testing</h3>
         <p>Videos and honest experience, not just spec sheets.</p>

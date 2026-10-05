@@ -40,13 +40,14 @@
     applyFilters();
   }
 
-  function productCardHTML(p) {
+  function productCardHTML(p, i) {
     const cat = categoryById(p.category);
     const badge = p.personallyUsed
       ? `<span class="badge badge-used">🏍️ Personally Used</span>`
       : `<span class="badge badge-recommended">✓ Recommended</span>`;
+    const delay = typeof i === "number" ? ` style="animation-delay:${(i % 8) * 0.06}s"` : "";
     return `
-    <article class="product-card" data-id="${p.id}" tabindex="0" role="button" aria-label="View ${p.name} details">
+    <article class="product-card reveal"${delay} data-id="${p.id}" tabindex="0" role="button" aria-label="View ${p.name} details">
       <div class="product-media">
         <div class="badge-row">${badge}<span class="badge badge-affiliate">Affiliate</span></div>
         <img src="${p.image}" alt="${p.name}" loading="lazy" width="600" height="600">
@@ -66,6 +67,7 @@
     productGrid.innerHTML = list.map(productCardHTML).join("");
     emptyState.classList.toggle("hidden", list.length > 0);
     resultsMeta.textContent = list.length ? `Showing ${list.length} product${list.length === 1 ? "" : "s"}` : "";
+    window.InspectMX.initReveals(productGrid);
   }
 
   function applyFilters() {

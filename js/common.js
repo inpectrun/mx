@@ -26,13 +26,19 @@
   window.InspectMX.starString = starString;
 
   /* ---------------------------------------------------------
-     Navbar: sticky shadow
+     Navbar: sticky shadow + scroll progress bar
   --------------------------------------------------------- */
   const navbar = document.getElementById("navbar");
+  const scrollProgress = document.getElementById("scrollProgress");
   window.addEventListener(
     "scroll",
     () => {
       navbar.classList.toggle("scrolled", window.scrollY > 12);
+      if (scrollProgress) {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        scrollProgress.style.width = Math.min(100, Math.max(0, pct)) + "%";
+      }
     },
     { passive: true }
   );
@@ -343,27 +349,40 @@
   });
 
   /* ---------------------------------------------------------
-     Scroll-reveal animation (IntersectionObserver)
+     Scroll-reveal animation (IntersectionObserver).
+     Exposed as InspectMX.initReveals() so page scripts can call it
+     again after injecting dynamic content (product/category/video/
+     build cards), since those don't exist yet when common.js first runs.
   --------------------------------------------------------- */
-  const revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length) {
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-              io.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-      revealEls.forEach((el) => io.observe(el));
-    } else {
-      revealEls.forEach((el) => el.classList.add("in-view"));
-    }
+  const revealIO =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                revealIO.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        )
+      : null;
+
+  function initReveals(root) {
+    const scope = root || document;
+    const els = scope.querySelectorAll(".reveal:not([data-reveal-bound])");
+    els.forEach((el) => {
+      el.setAttribute("data-reveal-bound", "1");
+      if (revealIO) {
+        revealIO.observe(el);
+      } else {
+        el.classList.add("in-view");
+      }
+    });
   }
+  window.InspectMX.initReveals = initReveals;
+  initReveals();
 
   /* ---------------------------------------------------------
      Active-section highlighting (navbar / drawer / tab bar)

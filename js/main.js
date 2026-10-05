@@ -12,8 +12,8 @@
   --------------------------------------------------------- */
   const categoryGrid = document.getElementById("categoryGrid");
   categoryGrid.innerHTML = CATEGORIES.map(
-    (c) => `
-    <a class="category-card" href="products.html?category=${c.id}" aria-label="Shop ${c.name}">
+    (c, i) => `
+    <a class="category-card reveal" style="animation-delay:${(i % 8) * 0.06}s" href="products.html?category=${c.id}" aria-label="Shop ${c.name}">
       <span class="cat-icon">${c.icon}</span>
       <h3>${c.name}</h3>
       <p>${c.description}</p>
@@ -25,8 +25,8 @@
   --------------------------------------------------------- */
   const videoGrid = document.getElementById("videoGrid");
   videoGrid.innerHTML = VIDEOS.map(
-    (v) => `
-    <article class="video-card">
+    (v, i) => `
+    <article class="video-card reveal" style="animation-delay:${(i % 8) * 0.08}s">
       <a class="video-thumb" href="${v.url}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${v.title} on ${v.platform}">
         <span class="platform-tag">${v.platform}</span>
         <img src="${v.thumbnail}" alt="${v.title}" loading="lazy" width="480" height="600">
@@ -48,12 +48,12 @@
      Builds
   --------------------------------------------------------- */
   const buildList = document.getElementById("buildList");
-  buildList.innerHTML = BUILDS.map((b) => {
+  buildList.innerHTML = BUILDS.map((b, i) => {
     const parts = b.parts
       .map((part) => `<button class="build-part-tag" data-part-product="${part.productId}">${part.label}</button>`)
       .join("");
     return `
-    <article class="build-card">
+    <article class="build-card reveal" style="animation-delay:${(i % 6) * 0.08}s">
       <div class="build-media"><img src="${b.image}" alt="${b.name}" loading="lazy" width="800" height="500"></div>
       <div class="build-info">
         <span class="build-bike">${b.bike}</span>
@@ -91,17 +91,21 @@
   });
 
   /* ---------------------------------------------------------
-     Subtle parallax on hero background
+     Subtle parallax on hero background (Ken Burns zoom runs
+     independently via CSS on the inner .hero-bg element)
   --------------------------------------------------------- */
-  const heroBg = document.querySelector(".hero-bg");
-  if (heroBg && window.matchMedia("(min-width: 700px)").matches) {
+  const heroBgWrap = document.getElementById("heroBgWrap");
+  if (heroBgWrap && window.matchMedia("(min-width: 700px)").matches) {
     window.addEventListener(
       "scroll",
       () => {
         const y = Math.min(window.scrollY, 600);
-        heroBg.style.transform = `scale(1.05) translateY(${y * 0.15}px)`;
+        heroBgWrap.style.transform = `translateY(${y * 0.15}px)`;
       },
       { passive: true }
     );
   }
+
+  /* Pick up the category/video/build cards just injected above */
+  window.InspectMX.initReveals();
 })();
