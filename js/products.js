@@ -322,10 +322,13 @@ const VIDEOS = [
 const BUILDS = [
   {
     id: "xtz125-trail",
-    name: "XTZ125 Trail Build",
+    name: "XTZ125",
+    tagline: "Full Build",
     bike: "Yamaha XTZ125",
     image: "images/builds/xtz125-trail.svg",
     summary: "My daily-to-trail build — focused on control, durability, and low-cost upgrades that hold up off-road.",
+    description:
+      "Fully modified from the ground up, built one upgrade at a time. Every single part on this bike is a real, production aftermarket part — nothing custom-fabricated, nothing one-off. If you see it here, you can get the exact same part and run it on your own bike. Built for control, durability, and trail-ready performance on daily rides.",
     parts: [
       { label: "Engine setup", productId: "oring-chain" },
       { label: "Controls", productId: "quick-throttle" },

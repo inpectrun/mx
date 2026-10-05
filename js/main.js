@@ -48,19 +48,28 @@
      Builds
   --------------------------------------------------------- */
   const buildList = document.getElementById("buildList");
-  buildList.innerHTML = BUILDS.map((b, i) => {
+  buildList.innerHTML = BUILDS.map((b) => {
     const parts = b.parts
       .map((part) => `<button class="build-part-tag" data-part-product="${part.productId}">${part.label}</button>`)
       .join("");
     return `
-    <article class="build-card reveal" style="animation-delay:${(i % 6) * 0.08}s">
-      <div class="build-media"><img src="${b.image}" alt="${b.name}" loading="lazy" width="800" height="500"></div>
-      <div class="build-info">
-        <span class="build-bike">${b.bike}</span>
-        <h3>${b.name}</h3>
-        <p class="build-summary">${b.summary}</p>
-        <div class="build-parts">${parts}</div>
-        <button class="btn btn-primary" data-view-build="${b.id}">View Build</button>
+    <article class="build-block">
+      <div class="container builds-header reveal">
+        <div class="builds-header-text">
+          <span class="build-bike">${b.bike}</span>
+          <h2 class="builds-title">${b.name} <span class="accent">${b.tagline}</span></h2>
+          <p class="builds-desc">${b.description || b.summary}</p>
+        </div>
+        <button class="btn btn-primary builds-cta" data-view-build="${b.id}">
+          Shop This Build
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </button>
+      </div>
+      <div class="builds-media-full reveal">
+        <img src="${b.image}" alt="${b.name} ${b.tagline}" loading="lazy">
+      </div>
+      <div class="container">
+        <div class="build-parts-full">${parts}</div>
       </div>
     </article>`;
   }).join("");
