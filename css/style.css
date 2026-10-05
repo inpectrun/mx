@@ -360,14 +360,24 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 700; 
    ========================================================= */
 .hero {
   position: relative;
-  min-height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   overflow: hidden;
-  padding: 40px 0 80px;
+  padding: 150px 0 0;
+}
+.hero-content { position: relative; z-index: 2; max-width: 760px; margin-bottom: 56px; }
+
+/* Full-bleed motorcycle photo strip — kept separate from the text so
+   the bike reads clearly instead of fighting a text overlay. */
+.hero-media-full {
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  width: 100vw;
+  aspect-ratio: 16/10;
+  overflow: hidden;
 }
 .hero-bg-wrap {
   position: absolute; inset: 0;
@@ -385,17 +395,16 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 700; 
   0%   { transform: scale(1) translate(0%, 0%); }
   100% { transform: scale(1.14) translate(-1.8%, -1.2%); }
 }
-.hero-overlay {
+.hero-media-fade {
   position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, rgba(11,12,15,0.55) 0%, rgba(11,12,15,0.62) 45%, var(--bg) 96%),
-    radial-gradient(circle at 50% 38%, rgba(11,12,15,0.15), rgba(11,12,15,0.7) 75%);
+  background: linear-gradient(180deg, rgba(11,12,15,0.12) 0%, transparent 18%, transparent 78%, var(--bg) 100%);
+  pointer-events: none;
 }
 .hero-light-sweep {
   position: absolute; inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.06) 48%, rgba(255,77,28,0.1) 50%, transparent 58%);
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.08) 48%, rgba(255,77,28,0.14) 50%, transparent 58%);
   background-size: 260% 260%;
   animation: heroSweep 9s ease-in-out infinite;
   mix-blend-mode: screen;
@@ -410,7 +419,11 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 700; 
   .hero-bg { animation: none; }
   .hero-light-sweep { display: none; }
 }
-.hero-content { position: relative; z-index: 2; max-width: 760px; }
+
+@media (min-width: 700px) {
+  .hero { padding-top: 170px; }
+  .hero-media-full { aspect-ratio: 21/9; }
+}
 
 .hero-eyebrow {
   text-transform: uppercase;
