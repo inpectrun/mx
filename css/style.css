@@ -443,36 +443,38 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 700; 
   align-items: center;
   text-align: center;
   overflow: hidden;
-  padding: 150px 0 0;
 }
-.hero-content { position: relative; z-index: 2; max-width: 760px; margin-bottom: 56px; }
 
-/* Ambient gradient-mesh glow behind the hero text */
-.hero::before, .hero::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.3;
+/* Text section — the "Inspect" build photo as a background, with a
+   dark + ember-tinted overlay baked in so the headline stays legible. */
+.hero-text-bg {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 150px 0 60px;
 }
-.hero::before {
-  width: 420px; height: 420px;
-  background: var(--accent);
-  top: -140px; left: -110px;
-  animation: ambientFloat1 16s ease-in-out infinite;
+.hero-text-bg-img {
+  position: absolute; inset: -6%;
+  background-size: cover;
+  background-position: center 30%;
+  animation: heroKenBurns 24s ease-in-out infinite alternate;
+  will-change: transform;
 }
-.hero::after {
-  width: 360px; height: 360px;
-  background: var(--accent-2);
-  top: 40px; right: -120px;
-  animation: ambientFloat2 20s ease-in-out infinite;
+.hero-text-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11,12,15,0.74) 0%, rgba(11,12,15,0.58) 45%, rgba(11,12,15,0.88) 100%),
+    radial-gradient(circle at 18% 18%, rgba(255,77,28,0.4), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(255,179,71,0.28), transparent 45%);
 }
-@keyframes ambientFloat1 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(30px, 40px); } }
-@keyframes ambientFloat2 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-25px, -30px); } }
+.hero-content { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+
 @media (prefers-reduced-motion: reduce) {
-  .hero::before, .hero::after { animation: none; }
+  .hero-text-bg-img { animation: none; }
+}
+
+@media (min-width: 700px) {
+  .hero-text-bg { padding: 170px 0 80px; }
 }
 
 /* Full-bleed motorcycle photo strip — kept separate from the text so
@@ -527,7 +529,6 @@ h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 700; 
 }
 
 @media (min-width: 700px) {
-  .hero { padding-top: 170px; }
   .hero-media-full { aspect-ratio: 21/9; }
 }
 
