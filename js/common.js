@@ -110,6 +110,32 @@
   }
 
   /* ---------------------------------------------------------
+     Cursor-follow spotlight glow on cards (desktop/mouse only —
+     skipped on touch devices so nothing gets stuck mid-hover)
+  --------------------------------------------------------- */
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    let spotlightTicking = false;
+    let lastSpotlightEvent = null;
+    document.addEventListener(
+      "mousemove",
+      (e) => {
+        lastSpotlightEvent = e;
+        if (spotlightTicking) return;
+        spotlightTicking = true;
+        requestAnimationFrame(() => {
+          spotlightTicking = false;
+          const el = lastSpotlightEvent.target.closest(".product-card, .category-card, .trust-card");
+          if (!el) return;
+          const rect = el.getBoundingClientRect();
+          el.style.setProperty("--mx", `${lastSpotlightEvent.clientX - rect.left}px`);
+          el.style.setProperty("--my", `${lastSpotlightEvent.clientY - rect.top}px`);
+        });
+      },
+      { passive: true }
+    );
+  }
+
+  /* ---------------------------------------------------------
      Footer categories (same on every page, links to products.html)
   --------------------------------------------------------- */
   const footerCategoriesEl = document.getElementById("footerCategories");
